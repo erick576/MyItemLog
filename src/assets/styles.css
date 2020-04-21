@@ -66,11 +66,35 @@
     height: 80px;
     position:relative;
     top:-30px;
+    justify-content: center;
+    flex-direction: row;
+    }
+
+/* Card Link Centering on Mobile Devices */
+@media screen and (max-width: 540px)  {
+    .card {
+    display:inline-block;
+    margin: 10px;
+    width: 50px;
+    height: 80px;
+    position:relative;
+    top:-30px;
+    left: -35px;
+    justify-content: center;
+    flex-direction: row;
+    }
+}
+
+.jumbotron {
+
+    justify-content: center;
+    flex-direction: row;
     }
 
 body {
-    background-color: #F0F8FF;
+    background-color: #DCDCDC;
     }
+
 
 
 
