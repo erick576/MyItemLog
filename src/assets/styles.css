@@ -79,7 +79,7 @@
     height: 80px;
     position:relative;
     top:-30px;
-    left: -35px;
+    left: -40px;
     justify-content: center;
     flex-direction: row;
     }
@@ -89,14 +89,13 @@
 
     justify-content: center;
     flex-direction: row;
+    border-bottom:2px solid #bbb;
+    background-color: #C0C0C0;
     }
 
 body {
     background-color: #DCDCDC;
     }
-
-
-
 
 
 
