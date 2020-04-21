@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from src.pages import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.conf import settings
 from django.views.static import serve
@@ -27,6 +28,8 @@ urlpatterns = [
     path('about/', views.about_view),
     path('add-item/', views.add_item_view),
 ]
+
+urlpatterns+= staticfiles_urlpatterns()
 
 """ 
 if settings.DEBUG:
