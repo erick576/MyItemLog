@@ -15,8 +15,8 @@ class Migration(migrations.Migration):
             name='entry',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Item', models.CharField(max_length=120)),
-                ('Picture_URL', models.CharField(blank=True, max_length=2000)),
+                ('Item', models.URLField(blank=True)),
+                ('Picture_URL', models.URLField(blank=True, max_length=2000)),
                 ('Description', models.TextField(blank=True)),
                 ('Price', models.DecimalField(blank=True, decimal_places=2, max_digits=100)),
                 ('Date', models.DateField(blank=True)),
