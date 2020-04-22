@@ -1,5 +1,5 @@
 .hover {
-    color: black;
+    color: white;
     background-color: #white;
     border: 1px solid transparent;
     display: inline-block;
@@ -97,5 +97,11 @@ body {
     background-color: #DCDCDC;
     }
 
+@media screen and (min-width: 64em) {
+.itemButton {
+    position:relative;
+    left: 165px;
+}
+}
 
 

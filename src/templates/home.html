@@ -5,11 +5,34 @@
 {% endblock %}
 
 {% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+    <div class="A">
+        <br>
+        <center><h1><b>My Items</b></h1></b></center>
+    </div>
     <br>
     <br>
     <br>
-    <br>
-    <center><h1><b>My Items</b></h1></center>
+    <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
+        <div class="card-body">
+            <center><a class="nav-link hover" href="http://127.0.0.1:8000/add-item/"><b> Add Item </b></a></center>
+        </div>
+    </div>
+    <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
+        <div class="card-body">
+            <center><a href="#" class="nav-link hover"><b> Delete All </b></a></center>
+        </div>
+    </div>
+    <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
+        <div class="card-body">
+            <center><a href="#" class="nav-link hover"><b>Export</b></a></center>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block search %}
