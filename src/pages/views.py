@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from item.models import entry
 
 
 # Create your views here.
 def home_view(request):
-    return render(request, "home.html", {})
+    entries = entry.objects.all()
+    return render(request, "home.html", {'item': entries})
 
 
 def contact_view(request):
@@ -13,7 +15,3 @@ def contact_view(request):
 
 def about_view(request):
     return render(request, "about.html", {})
-
-
-def add_item_view(request):
-    return render(request, "addItem.html", {})

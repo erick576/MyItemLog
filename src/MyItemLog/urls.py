@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from src.pages import views
+from pages.views import home_view
+from pages.views import about_view
+from pages.views import contact_view
+from item.views import add_item_view
+from item.views import delete_item_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.conf import settings
@@ -23,10 +27,11 @@ from django.views.static import serve
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home_view, name='home'),
-    path('contact/', views.contact_view),
-    path('about/', views.about_view),
-    path('add-item/', views.add_item_view),
+    path('', home_view, name='home'),
+    path('contact/', contact_view),
+    path('about/', about_view),
+    path('add-item/', add_item_view),
+    path('delete-item/', delete_item_view),
 ]
 
 urlpatterns+= staticfiles_urlpatterns()

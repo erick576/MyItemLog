@@ -104,4 +104,25 @@ body {
 }
 }
 
+/* Card Link Centering on Mobile Devices */
+@media screen and (max-width: 540px)  {
+#entries {
+    position: relative;
+    left: -175px;
+}
+}
 
+@media screen and (min-width: 64em) {
+#entries {
+    position: relative;
+    left: 55px;
+    display: inline-block;
+}
+}
+
+@media screen and (min-width: 64em) {
+.itemButton {
+    position: relative;
+    left: 5px;
+}
+}
