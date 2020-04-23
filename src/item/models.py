@@ -12,5 +12,8 @@ class entry(models.Model):
     Date = models.DateField(blank=True)
     URL = models.URLField(blank=True, max_length=200)
 
-    def get_absolute_url(self):
+    def get_absolute_url_delete(self):
         return reverse("delete-item", kwargs={"id": self.id})
+
+    def get_absolute_url_edit(self):
+        return reverse("edit-item", kwargs={"id": self.id})

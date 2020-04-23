@@ -30,13 +30,13 @@
     </div>
     <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
         <div class="card-body">
-            <center><a href="#" class="nav-link hover"><b>Export</b></a></center>
+            <center><a href="{% url 'item-download' %}" class="nav-link hover"><b>Export</b></a></center>
         </div>
     </div>
     </center>
 <div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
         {% for entry in item %}
-        <div class="card mt-5 border-dark mb-5" id="entries" style="width: 27rem; height: 35rem;">
+        <div class="card mt-5 border-dark mb-5" id="entries" style="width: 27rem; height: 30rem;">
             <div class="card-body">
                 <h5 class="card-title"><b>Item:</b><br><textarea data-toggle="tooltip" data-placement="bottom" title="My title" style="resize: none;" rows="2" cols="40" readonly>{{entry.Item}}</textarea></h5>
                 <p class="card-text"><b>Description:</b> <br><textarea rows="4" cols="50" readonly style="resize: none;">{{entry.Description}}</textarea></p>
@@ -44,10 +44,10 @@
                 <p class="card-text"><b>Date:</b> {{entry.Date}}</p>
                 <p class="card-text"><b>URL:</b>{% if entry.URL != "" %} <a href="{{entry.URL}}">Link</a>{% endif %}{% if entry.URL == "" %} None{% endif %}</p>
                 <p class="card-text"><b>Image Link:</b>{% if entry.Picture_URL != "" %} <a href="{{entry.Picture_URL}}">Image Link</a>{% endif %}{% if entry.Picture_URL == "" %} None{% endif %}</p>
-                <form action="#">
-                <input type = "submit" class="btn btn-dark hover" style="margin-bottom:10px;" value = "Edit"/>
-                </form>
-                <a href='{{ entry.get_absolute_url }}' class="btn btn-dark hover"><form action="." method="POST">{% csrf_token %}
+                <a href='{{ entry.get_absolute_url_edit }}' class="btn btn-dark hover"><form action="." method="POST">{% csrf_token %}
+                    Edit
+                </form> </a>
+                <a href='{{ entry.get_absolute_url_delete }}' class="btn btn-dark hover"><form action="." method="POST">{% csrf_token %}
                     Delete
                 </form> </a>
             </div>

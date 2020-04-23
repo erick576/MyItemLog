@@ -21,6 +21,8 @@ from pages.views import contact_view
 from item.views import add_item_view
 from item.views import delete_item_view
 from item.views import delete_all_item_view
+from item.views import edit_item_view
+from item.views import entry_download
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.conf import settings
@@ -34,7 +36,9 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     path('add-item/', add_item_view, name='add-item'),
     path('delete-item/<int:id>', delete_item_view, name='delete-item'),
+    path('edit-item/<int:id>', edit_item_view, name='edit-item'),
     path('delete-all/', delete_all_item_view, name='delete-all'),
+    path('item-download/', entry_download, name='item-download'),
 ]
 
 urlpatterns+= staticfiles_urlpatterns()
