@@ -19,3 +19,18 @@ class EntryForm(forms.ModelForm):
             'Description': Textarea(attrs={'cols': 23, 'rows': 10}),
         }
 
+
+class RawEntryForm(forms.Form):
+    Item = forms.CharField()
+    Picture_URL = forms.URLField()
+    Description = forms.CharField(required=False, widget=forms.Textarea(
+        attrs={
+            "class": "new-class-name two",
+            "id": "my-id-for-textarea",
+            "rows": 20,
+            "cols": 20,
+        }
+    ))
+    Price = forms.DecimalField()
+    Date = forms.DateField()
+    URL = forms.URLField()
