@@ -17,6 +17,7 @@
     <br>
     <br>
     <br>
+    <center>
     <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
         <div class="card-body">
             <center><a class="nav-link hover" href="http://127.0.0.1:8000/add-item/"><b> Add Item </b></a></center>
@@ -32,6 +33,26 @@
             <center><a href="#" class="nav-link hover"><b>Export</b></a></center>
         </div>
     </div>
+    </center>
+<div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+        {% for entry in item %}
+        <div class="card mt-5 border-dark mb-5" id="entries" style="width: 27rem; height: 35rem;">
+            <div class="card-body">
+                <h5 class="card-title"><b>Item:</b><br><textarea data-toggle="tooltip" data-placement="bottom" title="My title" style="resize: none;" rows="2" cols="40" readonly>{{entry.Item}}</textarea></h5>
+                <p class="card-text"><b>Description:</b> <br><textarea rows="4" cols="50" readonly style="resize: none;">{{entry.Description}}</textarea></p>
+                <p class="card-text"><b>Price:</b>{% if entry.Price is not None %} ${% endif %} {{entry.Price}}</p>
+                <p class="card-text"><b>Date:</b> {{entry.Date}}</p>
+                <p class="card-text"><b>URL:</b>{% if entry.Price is not None %} <a href="{{entry.URL}}">Link</a>{% endif %}{% if entry.Price is None %} None{% endif %}</p>
+                <p class="card-text"><b>Image Link:</b>{% if entry.Price is not None %} <a href="{{entry.Image_URL}}">Image Link</a>{% endif %}{% if entry.Price is None %} None{% endif %}</p>
+                <form action="#">
+                <input type = "submit" class="btn btn-dark hover" style="margin-bottom:10px;" value = "Edit"/>
+                </form>
+                <a href="#"><form action="#">
+                <input type="submit" class="btn btn-dark hover" value="Delete" />
+                </form> </a>
+            </div>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
 
