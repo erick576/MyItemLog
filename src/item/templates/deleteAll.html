@@ -12,32 +12,26 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         {% load static from staticfiles %}
         <link rel="stylesheet" href="{% static 'styles.css' %}?{% now 'U' %}">
-        <title>Add Item</title>
+        <title>Delete All Items</title>
     </head>
 <body>
     <br>
     <div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
         <div class="A">
             <br>
-            <center><h1><b>Add Item</b></h1></center>
+            <center><h1><b>Delete All Items</b></h1></center>
         </div>
-        <div class="B">
+        <div>
             <br>
             <div class="jumbotron">
                 <center>
-                <form action="." method="POST">{% csrf_token %}
-                    {% for field in form %}
-                    <div class="field">
-                        <label class="label">{{ field.html_name }}</label>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h1>Are You Sure ?</h1>
                         <br>
-                        <strong>{{ field }}</strong>
-                        <br>
-                        <br>
-                    </div>
-                    {% endfor %}
-                    <button type="button" class="btn btn-dark hover"><a href="{% url 'home' %}" class="text-white">Cancel</a></button>
-                    <input type="submit" value='Save' class="btn btn-dark hover"/>
-                </form>
+                        <input type="submit" value="Yes" class="btn btn-dark hover">
+                        <a class="btn btn-dark hover" href="../">Cancel</a>
+                    </form>
                 </center>
             </div>
         </div>

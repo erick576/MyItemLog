@@ -20,12 +20,12 @@
     <center>
     <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
         <div class="card-body">
-            <center><a class="nav-link hover" href="http://127.0.0.1:8000/add-item/"><b> Add Item </b></a></center>
+            <center><a class="nav-link hover" href="{% url 'add-item' %}"><b> Add Item </b></a></center>
         </div>
     </div>
     <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
         <div class="card-body">
-            <center><a href="#" class="nav-link hover"><b> Delete All </b></a></center>
+            <center><a href="{% url 'delete-all' %}" class="nav-link hover"><b> Delete All </b></a></center>
         </div>
     </div>
     <div class="card border-dark bg-dark itemButton" style="width: 18rem;">
@@ -40,15 +40,15 @@
             <div class="card-body">
                 <h5 class="card-title"><b>Item:</b><br><textarea data-toggle="tooltip" data-placement="bottom" title="My title" style="resize: none;" rows="2" cols="40" readonly>{{entry.Item}}</textarea></h5>
                 <p class="card-text"><b>Description:</b> <br><textarea rows="4" cols="50" readonly style="resize: none;">{{entry.Description}}</textarea></p>
-                <p class="card-text"><b>Price:</b>{% if entry.Price is not None %} ${% endif %} {{entry.Price}}</p>
+                <p class="card-text"><b>Price:</b>{% if entry.Price != Null %} ${% endif %} {{entry.Price}}</p>
                 <p class="card-text"><b>Date:</b> {{entry.Date}}</p>
-                <p class="card-text"><b>URL:</b>{% if entry.Price is not None %} <a href="{{entry.URL}}">Link</a>{% endif %}{% if entry.Price is None %} None{% endif %}</p>
-                <p class="card-text"><b>Image Link:</b>{% if entry.Price is not None %} <a href="{{entry.Image_URL}}">Image Link</a>{% endif %}{% if entry.Price is None %} None{% endif %}</p>
+                <p class="card-text"><b>URL:</b>{% if entry.URL != "" %} <a href="{{entry.URL}}">Link</a>{% endif %}{% if entry.URL == "" %} None{% endif %}</p>
+                <p class="card-text"><b>Image Link:</b>{% if entry.Picture_URL != "" %} <a href="{{entry.Picture_URL}}">Image Link</a>{% endif %}{% if entry.Picture_URL == "" %} None{% endif %}</p>
                 <form action="#">
                 <input type = "submit" class="btn btn-dark hover" style="margin-bottom:10px;" value = "Edit"/>
                 </form>
-                <a href="#"><form action="#">
-                <input type="submit" class="btn btn-dark hover" value="Delete" />
+                <a href='{{ entry.get_absolute_url }}' class="btn btn-dark hover"><form action="." method="POST">{% csrf_token %}
+                    Delete
                 </form> </a>
             </div>
         </div>

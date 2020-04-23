@@ -53,15 +53,15 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item hover">
-                        <center><a class="nav-link" href="http://127.0.0.1:8000/#" style=""><b> Home </b></a></center>
+                        <center><a class="nav-link" href="{% url 'home' %}" style=""><b> Home </b></a></center>
                     </li>
         &nbsp;
                     <li class="nav-item hover">
-                        <center><a class="nav-link" href="http://127.0.0.1:8000/about/#"><b> About </b></a></center>
+                        <center><a class="nav-link" href="{% url 'about' %}"><b> About </b></a></center>
                     </li>
             &nbsp;
                     <li class="nav-item hover">
-                        <center><a class="nav-link" href="http://127.0.0.1:8000/contact/#"><b> Contact </b></a></center>
+                        <center><a class="nav-link" href="{% url 'contact' %}"><b> Contact </b></a></center>
                     </li>
                 </ul>
     {% block search %}

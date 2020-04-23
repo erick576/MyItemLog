@@ -20,18 +20,21 @@ from pages.views import about_view
 from pages.views import contact_view
 from item.views import add_item_view
 from item.views import delete_item_view
+from item.views import delete_all_item_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.conf import settings
 from django.views.static import serve
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', home_view, name='home'),
-    path('contact/', contact_view),
-    path('about/', about_view),
-    path('add-item/', add_item_view),
-    path('delete-item/', delete_item_view),
+    path('contact/', contact_view, name='contact'),
+    path('about/', about_view, name='about'),
+    path('add-item/', add_item_view, name='add-item'),
+    path('delete-item/<int:id>', delete_item_view, name='delete-item'),
+    path('delete-all/', delete_all_item_view, name='delete-all'),
 ]
 
 urlpatterns+= staticfiles_urlpatterns()

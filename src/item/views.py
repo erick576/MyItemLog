@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -32,5 +32,19 @@ def add_item_view(request):
 #     }
 #     return render(request, "addItem.html", context)
 
-def delete_item_view(request):
-    return render(request, "deleteItem.html", {})
+def delete_item_view(request, id):
+    obj = get_object_or_404(entry, id=id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect('/')
+    context = {
+        "object": obj
+    }
+    return render(request, "deleteItem.html", context)
+
+
+def delete_all_item_view(request):
+    if request.method == "POST":
+        entry.objects.all().delete()
+        return redirect('/')
+    return render(request, "deleteAll.html")
