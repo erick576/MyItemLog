@@ -18,6 +18,7 @@ from django.urls import path
 from pages.views import home_view
 from pages.views import about_view
 from pages.views import contact_view
+from pages.views import home_search
 from item.views import add_item_view
 from item.views import delete_item_view
 from item.views import delete_all_item_view
@@ -32,6 +33,7 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', home_view, name='home'),
+    path('search/', home_search, name='search'),
     path('contact/', contact_view, name='contact'),
     path('about/', about_view, name='about'),
     path('add-item/', add_item_view, name='add-item'),
