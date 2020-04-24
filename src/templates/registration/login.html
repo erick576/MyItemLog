@@ -13,6 +13,7 @@
         {% load static from staticfiles %}
         <link rel="stylesheet" href="{% static 'styles.css' %}?{% now 'U' %}">
         {% load crispy_forms_tags %}
+        {% if not user.is_authenticated %}
         <title>Login</title>
     </head>
 <body>
@@ -33,6 +34,7 @@
         </form>
         </center>
     </div>
+    {% endif %}
 </body>
 </html>
 
