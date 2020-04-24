@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        {% load static from staticfiles %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}?{% now 'U' %}">
+        {% load crispy_forms_tags %}
+        <title>Create User</title>
+    </head>
+<body>
+    <br>
+    <div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+        <br>
+        <br>
+        <center><h1> <b>Create User</b> </h1></center>
+        <br>
+        <center>
+        <form method="POST" class="from-group">
+            {% csrf_token %}
+            {{form|crispy}}
+             <a class="btn btn-dark hover" href="/login">Cancel</a>
+            <button type="submit" class="btn btn-dark hover">Register</button>
+        </form>
+        </center>
+    </div>
+</body>
+</html>
+
+
+
+
+

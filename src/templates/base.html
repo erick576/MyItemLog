@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     {% load static from staticfiles %}
     <link rel="stylesheet" href="{% static 'styles.css' %}?{% now 'U' %}">
-
+    {% if user.is_authenticated %}
     {% block title %}
 
     {% endblock %}
@@ -66,11 +66,12 @@
                     <br>
                     <li class="nav-item dropdown hover">
                         <center><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <b>Insert Profile Name</b>
+                            {% csrf_token %}
+                            <b>{{ user.first_name }} {{ user.last_name }}</b>
                         </a>
                         <div class="dropdown-menu bg-dark dark" aria-labelledby="navbarDropdown">
-                            <center><a class="dropdown-item hover" href="#"><b>Profile</b></a></center>
-                            <center><a class="dropdown-item hover" href="#"><b>Logout</b></a></center>
+                            <center><a class="dropdown-item hover" href="{% url 'profile' %}"><b>Profile</b></a></center>
+                            <center><a class="dropdown-item hover" href="{% url 'logout' %}"><b>Logout</b></a></center>
                         </div>
                         </center>
                     </li>
@@ -83,5 +84,6 @@
     {% block content %}
 
     {% endblock %}
+    {% endif %}
     </body>
 </html>

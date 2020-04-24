@@ -19,14 +19,17 @@ from pages.views import home_view
 from pages.views import about_view
 from pages.views import contact_view
 from pages.views import home_search
+from pages.views import profile_view
 from item.views import add_item_view
 from item.views import delete_item_view
 from item.views import delete_all_item_view
 from item.views import edit_item_view
 from item.views import entry_download
+from register.views import register
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.conf import settings
+from django.urls import include
 from django.views.static import serve
 
 
@@ -41,6 +44,9 @@ urlpatterns = [
     path('edit-item/<int:id>', edit_item_view, name='edit-item'),
     path('delete-all/', delete_all_item_view, name='delete-all'),
     path('item-download/', entry_download, name='item-download'),
+    path('', include("django.contrib.auth.urls")),
+    path("register/", register, name="register"),
+    path('profile/', profile_view, name="profile"),
 ]
 
 urlpatterns+= staticfiles_urlpatterns()
