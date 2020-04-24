@@ -44,7 +44,7 @@ urlpatterns = [
     path('edit-item/<int:id>', edit_item_view, name='edit-item'),
     path('delete-all/', delete_all_item_view, name='delete-all'),
     path('item-download/', entry_download, name='item-download'),
-    path('', include("django.contrib.auth.urls")),
+    path('', include("django.contrib.auth.urls"), name="login"),
     path("register/", register, name="register"),
     path('profile/', profile_view, name="profile"),
 ]

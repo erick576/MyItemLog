@@ -84,6 +84,21 @@
     {% block content %}
 
     {% endblock %}
+
+    {% else %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+        <div class="jumbotron">
+                <h1 class=" center-text"><center><b>You Are Not Logged In</b></center></h1>
+                <br>
+                <br>
+                <br>
+                <h1 class=" center-text"><center><b>Login <a href="{% url 'login' %}">Here </a></b></center></h1>
+        </div>
+        </div>
     {% endif %}
     </body>
 </html>
