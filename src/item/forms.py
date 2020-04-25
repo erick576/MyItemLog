@@ -6,6 +6,7 @@ from .models import entry
 
 class EntryForm(forms.ModelForm):
     class Meta:
+        exclude = ('user',)
         model = entry
         fields = [
             'Item',
@@ -14,10 +15,13 @@ class EntryForm(forms.ModelForm):
             'Price',
             'Date',
             'URL',
+            'user',
         ]
         widgets = {
             'Description': Textarea(attrs={'cols': 23, 'rows': 10}),
         }
+
+
 
 
 class RawEntryForm(forms.Form):

@@ -31,7 +31,7 @@ from django.conf.urls import url
 from django.conf import settings
 from django.urls import include
 from django.views.static import serve
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),

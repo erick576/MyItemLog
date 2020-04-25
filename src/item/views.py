@@ -2,7 +2,7 @@ import csv
 
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, response
 from django.urls import reverse
 
 from .models import entry
@@ -13,7 +13,9 @@ from .forms import EntryForm
 def add_item_view(request):
     form = EntryForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        obj = form.save(commit=False)  # Don't save it yet
+        obj.user = request.user
+        obj.save()
         form = EntryForm()
         return redirect('/')
     context = {
@@ -50,7 +52,7 @@ def delete_item_view(request, id):
 # @permission_required('admin.can_add_log_entry')
 def delete_all_item_view(request):
     if request.method == "POST":
-        entry.objects.all().delete()
+        entry.objects.filter(user=request.user).all().delete()
         return redirect('/')
     return render(request, "deleteAll.html")
 
@@ -73,7 +75,7 @@ def edit_item_view(request, id):
 
 # @permission_required('admin.can_add_log_entry')
 def entry_download(self):
-    items = entry.objects.all()
+    items = entry.objects.filter(user=self.user).all()
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="items.csv"'
 

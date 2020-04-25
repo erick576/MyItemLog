@@ -6,8 +6,11 @@ from django.db.models import Q
 
 # Create your views here.
 def home_view(request):
-    entries = entry.objects.all()
-    return render(request, "home.html", {'item': entries})
+    if request.user.is_authenticated:
+        entries = entry.objects.filter(user=request.user)
+        return render(request, "home.html", {'item': entries})
+    else:
+        return render(request, "home.html")
 
 
 def contact_view(request):
@@ -27,7 +30,7 @@ def home_search(request):
     if query.isspace():
         return redirect('/')
     if query:
-        results = entry.objects.filter(Q(Item__icontains=query) | Q(Price__icontains=query) | Q(Date__icontains=query))
+        results = entry.objects.filter(user=request.user) & entry.objects.filter(Q(Item__icontains=query) | Q(Price__icontains=query) | Q(Date__icontains=query))
     else:
         return redirect('/')
     context = {
