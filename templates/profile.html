@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Profile Page</title>
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+    <div class="A">
+        <br>
+        <center><h1><b>User Details</b></h1></center>
+    </div>
+    <br>
+    <br>
+    <div class="jumbotron">
+        <p class = "card-text"><center>First Name: <b>{% if user.first_name != "" %}{{ user.first_name }}{% else %}None{% endif %}</b></center></p>
+        <p class = "card-text"><center>Last Name: <b>{% if user.last_name != "" %}{{ user.last_name }}{% else %}None{% endif %}</b></center></p>
+        <p class = "card-text"><center>Username: <b>{{user.username}}</b></center></p>
+        <p class = "card-text"><center>Email: <b>{% if user.email != "" %}{{ user.email }}{% else %}None{% endif %}</b></center></p>
+        <br>
+        <br>
+        <center><a class="btn btn-dark hover" href="/">Back</a></center>
+    </div>
+</div>
+{% endblock %}

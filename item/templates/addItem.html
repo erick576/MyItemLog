@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        {% load static from staticfiles %}
+        {% load crispy_forms_tags %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}?{% now 'U' %}">
+        {% if user.is_authenticated %}
+        <title>Add Item</title>
+    </head>
+<body>
+    <br>
+    <div class="grid col-6 col-sm-6 col-md-8 col-lg-8 col-xl-10">
+        <div class="A">
+            <br>
+            <center><h1><b>Add Item</b></h1></center>
+        </div>
+            <br>
+            <center>
+            <div class="jumbotron">
+                <center>
+                <form action="." method="POST">{% csrf_token %}
+                    {{form|crispy}}
+                    <button type="button" class="btn btn-dark hover"><a href="{% url 'home' %}" class="text-white">Cancel</a></button>
+                    <input type="submit" value='Save' class="btn btn-dark hover"/>
+                </form>
+                </center>
+            </div>
+            </center>
+        <br>
+        <br>
+        <br>
+    </div>
+        {% endif %}
+</body>
+</html>

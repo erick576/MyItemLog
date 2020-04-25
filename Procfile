@@ -1,0 +1,1 @@
+web: gunicorn MyItemLog.wsgi --log-file -

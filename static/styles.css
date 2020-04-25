@@ -1,0 +1,130 @@
+.hover {
+    color: white;
+    background-color: #white;
+    border: 1px solid transparent;
+    display: inline-block;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+.hover:hover {
+    background-color: #aebac2;
+    color: white;
+    }
+
+.hover:active {
+    background-color: #1b3a4f;
+    }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: black;
+    display: inline-block;
+    line-height: 1.5;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-radius: 50%;
+    }
+
+
+#myBtn:hover {
+    background-color: #aebac2;
+    }
+
+.grid {
+    display: gird;
+    width: 1500px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #bbb;
+    padding: 10px;
+    position: relative;
+    grid-gap: 10px;
+    margin: auto;
+    }
+
+.B {
+    height: 400px;
+    }
+
+.Homecard {
+    display:inline-block;
+    margin: 10px;
+    width: 50px;
+    height: 80px;
+    position:relative;
+    top:-30px;
+    justify-content: center;
+    flex-direction: row;
+    }
+
+
+.jumbotron {
+    justify-content: center;
+    flex-direction: row;
+    border-bottom:2px solid #bbb;
+    background-color: #C0C0C0;
+    }
+
+body {
+    background-color: #DCDCDC;
+    }
+
+@media screen and (max-width: 64em) {
+.itemButton {
+    position:relative;
+    left: -50px;
+}
+}
+
+@media screen and (min-width: 64em) {
+.itemButton {
+    position: relative;
+    left: 5px;
+}
+}
+
+.ctct {
+    display:inline-block;
+    margin: 10px;
+    }
+
+.hoverRed:hover {
+    background-color: #d9534f;
+    color: white;
+    }
+
+.hoverBlack:hover {
+    background-color: #292b2c;
+    color: white;
+    }
+
+.hoverBlue:hover {
+    background-color: #5bc0de;
+    color: white;
+    }
+
+.hoverGreen:hover {
+    background-color: #5cb85c;
+    color: white;
+    }
+
+.border {
+    border-bottom: 4px solid #bbb;
+}
+
+#entries {
+    bottom-margin: 100px;
+    }
