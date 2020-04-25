@@ -17,10 +17,10 @@
     <br>
     <br>
     <div class="jumbotron">
-        <p class = "card-text"><h5><center>First Name: <b>{{ user.first_name }}</b></center></h5></p>
-        <p class = "card-text"><h5><center>Last Name: <b>{{ user.last_name }}</b></center></h5></p>
+        <p class = "card-text"><h5><center>First Name: <b>{% if user.first_name != "" %}{{ user.first_name }}{% else %}None{% endif %}</b></center></h5></p>
+        <p class = "card-text"><h5><center>Last Name: <b>{% if user.last_name != "" %}{{ user.last_name }}{% else %}None{% endif %}</b></center></h5></p>
         <p class = "card-text"><h5><center>Username: <b>{{user.username}}</b></center></h5></p>
-        <p class = "card-text"><h5 ><center>Email: <b>{{user.email}}</b></center></h5></p>
+        <p class = "card-text"><h5 ><center>Email: <b>{% if user.email != "" %}{{ user.email }}{% else %}None{% endif %}</b></center></h5></p>
         <br>
         <br>
         <center><a class="btn btn-dark hover" href="/">Back</a></center>
