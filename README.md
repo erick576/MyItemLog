@@ -22,5 +22,5 @@ This is a **Django** Web Application where Users can keep a Log of all their Pos
 ## Documentation
 * [User Manual](https://github.com/erick576/MyItemLog/blob/master/documentation/User%20Manual.pdf) **(Note: View Shown in User Manual Is Subject To Change)**
 
-## Feature Requests And Bugs
-Please Add any Feature Requests or Bugs in the [Issues](https://github.com/erick576/MyItemLog/issues) of this Repository
+## Bugs
+Please Add Any Bugs in the [Issues](https://github.com/erick576/MyItemLog/issues) of this Repository
